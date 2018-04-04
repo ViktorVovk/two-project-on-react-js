@@ -44,10 +44,6 @@ class Main extends React.Component{
           page: this.state.page+1
         })
       })
-  }
-
-  componentWillMount() {
-    setTimeout(()=>{
       fetch(`http://localhost/list.php?page=${this.state.page+1}&per_page=${this.state.perPage}`)
         .then(response=>response.json())
         .then(data => {
@@ -56,8 +52,8 @@ class Main extends React.Component{
             page: this.state.page+1
           })
         })
-    },0)
   }
+
 
   shouldComponentUpdate(nextProps, nextState){
         if (nextState.entities === this.state.entities && nextState.loadButtonAnimate === this.state.loadButtonAnimate) return false
